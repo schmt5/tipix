@@ -6,6 +6,7 @@ import { MarkButton } from './MarkButton';
 import { MenuItem } from './MenuItem';
 import { IconSearch } from './IconSearch';
 import './index.css'
+import { useDebounce } from './useDebounce';
 
 interface Props {
     children: React.ReactNode;
@@ -17,6 +18,7 @@ interface Props {
 export function Tipix({ children, editor, marks, shortcut = 'Space' }: Props) {
     const [open, setOpen] = React.useState(false);
     const [search, setSearch] = React.useState('');
+    const debouncedSearch = useDebounce(search, 300);
 
     const handleShortcut = (event: React.KeyboardEvent<HTMLDivElement>) => {
         event.stopPropagation();
@@ -30,7 +32,7 @@ export function Tipix({ children, editor, marks, shortcut = 'Space' }: Props) {
     return (
         <>
             <div className='editor-wrapper' onKeyUp={handleShortcut}>
-                <SearchContext.Provider value={search}>
+                <SearchContext.Provider value={debouncedSearch}>
                     <div className='tipix'>
                         <div className='toolbar'>
                             {marks}
@@ -75,7 +77,7 @@ export function Tipix({ children, editor, marks, shortcut = 'Space' }: Props) {
                                                     if (event.code === 'ArrowDown') {
                                                         const parentElement = document.activeElement?.parentNode as HTMLElement;
                                                         const nextElement = parentElement.nextElementSibling as HTMLElement;
-                                                        
+
                                                         if (nextElement) {
                                                             nextElement.focus();
                                                         }
