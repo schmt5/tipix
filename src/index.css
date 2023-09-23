@@ -34,7 +34,6 @@
 .editor {
   outline: none;
   padding: 12px;
-  min-height: 200px;
 }
 
 .editor .tiptap {
