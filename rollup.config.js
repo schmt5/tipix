@@ -6,7 +6,7 @@ export default {
   output: [
     {
       file: 'dist/index.js',
-      format: 'cjs',
+      format: 'esm',
       exports: 'named',
       sourcemap: true,
       strict: false

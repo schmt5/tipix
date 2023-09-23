@@ -5,8 +5,8 @@ import { SearchContext } from './SearchContext';
 import { MarkButton } from './MarkButton';
 import { MenuItem } from './MenuItem';
 import { IconSearch } from './IconSearch';
-import './index.css'
 import { useDebounce } from './useDebounce';
+import './index.css'
 
 interface Props {
     children: React.ReactNode;
@@ -92,7 +92,7 @@ export function Tipix({ children, editor, marks, shortcut = 'Space' }: Props) {
                         </div>
                     </div>
                 </SearchContext.Provider>
-                <EditorContent editor={editor} />
+                <EditorContent className='editor' editor={editor} />
             </div>
         </>
     )

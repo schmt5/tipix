@@ -35,8 +35,10 @@
   outline: none;
   padding: 12px;
   min-height: 200px;
-  width: 50vw;
-  text-align: start;
+}
+
+.editor .tiptap {
+  outline: none;
 }
 
 .tipix {

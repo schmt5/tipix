@@ -1,6 +1,6 @@
 {
   "name": "tipix",
-  "version": "0.0.2",
+  "version": "0.0.12",
   "description": "TipTap menu component based on radix ui",
   "main": "dist/index.js",
   "type": "module",
